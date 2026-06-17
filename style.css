@@ -652,3 +652,9 @@ body.forest.quarto-page .dark {
         height: 260px;
     }
 }
+
+/* Make black hollow Quarto pieces visible in black & white theme */
+body.blackwhite.quarto-page .dark.hollow::after {
+    background-color: #333333;
+    border: 2px solid #111111;
+}
