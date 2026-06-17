@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quarto</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body class="wooden quarto-page">
+
+    <h1>Quarto</h1>
+
+    <div id="game">
+        <h2 id="message"></h2>
+
+        <div id="previewArea">
+            <p>Piece to place:</p>
+            <div id="previewPiece"></div>
+        </div>
+
+        <button id="restartButton">New Game</button>
+        <button id="toggleHistoryButton">Hide History</button>
+        <button id="menuButton">Back to Hub</button>
+
+        <div id="mainGameArea">
+            <div id="board"></div>
+
+            <div id="historyBox">
+                <h2>Move History</h2>
+
+                <div id="reviewControls">
+                    <button id="backMoveButton">←</button>
+                    <span id="reviewText">Live Game</span>
+                    <button id="forwardMoveButton">→</button>
+                </div>
+
+                <ol id="history"></ol>
+            </div>
+        </div>
+
+        <h2>Pieces</h2>
+        <div id="pieces"></div>
+    </div>
+    
+    <script src="quarto.js"></script>
+</body>
+</html>

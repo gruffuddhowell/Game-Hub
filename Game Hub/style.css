@@ -1,0 +1,654 @@
+/* =========================
+   THEME VARIABLES
+========================= */
+
+body.wooden {
+    --background: #8b5a2b;
+    --panel: #c49a6c;
+    --panel-dark: #5c3317;
+    --text: #2b1605;
+    --button: #5c3317;
+    --button-hover: #3b1f0d;
+    --button-text: #fff5e1;
+    --cell: #deb887;
+    --cell-hover: #f0c891;
+    --border: #3b1f0d;
+    --highlight: #ffe08a;
+    --player-one: #3b1f0d;
+    --player-two: #ffe08a;
+}
+
+body.forest {
+    --background: #1f3d2b;
+    --panel: #3f6b4a;
+    --panel-dark: #183522;
+    --text: #f0fff4;
+    --button: #244d32;
+    --button-hover: #15291d;
+    --button-text: #ffffff;
+    --cell: #6b8f5a;
+    --cell-hover: #87a96b;
+    --border: #0f2417;
+    --highlight: #d6f5b3;
+    --player-one: #7a4f2a;
+    --player-two: #b7e36f;
+}
+
+body.blackwhite {
+    --background: #ffffff;
+    --panel: #eeeeee;
+    --panel-dark: #111111;
+    --text: #000000;
+    --button: #000000;
+    --button-hover: #333333;
+    --button-text: #ffffff;
+    --cell: #ffffff;
+    --cell-hover: #dddddd;
+    --border: #000000;
+    --highlight: #aaaaaa;
+    --player-one: #000000;
+    --player-two: #888888;
+}
+
+
+/* =========================
+   GENERAL PAGE STYLE
+========================= */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    text-align: center;
+}
+
+h1,
+h2,
+h3 {
+    margin: 15px;
+}
+
+p {
+    margin: 10px;
+}
+
+.page {
+    padding: 20px;
+}
+
+.menu,
+.game-panel,
+.settings-panel {
+    background: var(--panel);
+    border: 3px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 700px;
+}
+
+.section {
+    margin: 20px 0;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    background: var(--button);
+    color: var(--button-text);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 18px;
+    margin: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--button-hover);
+    transform: scale(1.04);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button.selected {
+    outline: 4px solid var(--highlight);
+}
+
+
+/* =========================
+   GAME HUB
+========================= */
+
+.game-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.game-button {
+    width: 160px;
+    height: 70px;
+    font-size: 18px;
+}
+
+
+/* =========================
+   SHARED BOARDS / CELLS
+========================= */
+
+.board {
+    display: grid;
+    gap: 8px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.cell {
+    background: var(--cell);
+    border: 3px solid var(--border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--text);
+}
+
+.cell:hover {
+    background: var(--cell-hover);
+}
+
+.tictactoe-board {
+    grid-template-columns: repeat(3, 100px);
+}
+
+.tictactoe-board .cell {
+    width: 100px;
+    height: 100px;
+}
+
+.connect4-board {
+    grid-template-columns: repeat(7, 70px);
+}
+
+.connect4-board .cell {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+
+/* =========================
+   SHARED PIECES / COUNTERS
+========================= */
+
+.counter,
+.checker-piece {
+    border-radius: 50%;
+    background: var(--player-one);
+}
+
+.player-one-piece {
+    background: var(--player-one);
+}
+
+.player-two-piece {
+    background: var(--player-two);
+}
+
+.tictactoe-board .counter {
+    width: 65px;
+    height: 65px;
+}
+
+.connect4-board .cell.player-one-piece,
+.connect4-board .cell.player-one-piece:hover {
+    background: var(--player-one);
+}
+
+.connect4-board .cell.player-two-piece,
+.connect4-board .cell.player-two-piece:hover {
+    background: var(--player-two);
+}
+
+.cell:has(.counter):hover,
+.cell:has(.checker-piece):hover {
+    background: var(--cell);
+}
+
+
+/* =========================
+   GAME INFO / HISTORY
+========================= */
+
+#message,
+.message {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 15px;
+}
+
+.status-box {
+    background: var(--panel);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 10px;
+    margin: 15px auto;
+    max-width: 500px;
+}
+
+.history-panel {
+    background: var(--panel);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 6px;
+    border-bottom: 1px solid var(--border);
+}
+
+.history-item.highlight {
+    background: var(--highlight);
+    color: #000000;
+}
+
+
+/* =========================
+   CHECKERS
+========================= */
+
+.checkers-board {
+    grid-template-columns: repeat(8, 60px);
+    gap: 0;
+    border: none;
+}
+
+.checkers-board .cell {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.light-square,
+.checkers-board .cell.light-square:hover {
+    background: var(--cell);
+}
+
+.dark-square,
+.checkers-board .cell.dark-square:hover {
+    background: var(--panel-dark);
+}
+
+.checker-piece {
+    width: 42px;
+    height: 42px;
+    border: none;
+    box-shadow: none;
+}
+
+.checkers-board .checker-piece.selected {
+    transform: scale(1.08);
+}
+
+.valid-move {
+    outline: none;
+}
+
+.checker-piece.king::after {
+    content: "K";
+    color: var(--button-text);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+body:has(.checkers-board) .game-panel {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+body:has(.checkers-board) #message {
+    background: var(--panel);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 10px;
+    display: inline-block;
+}
+
+body:has(.checkers-board) .section {
+    margin-top: 20px;
+}
+
+body.blackwhite .light-square,
+body.blackwhite .checkers-board .cell.light-square:hover {
+    background: #ffffff;
+}
+
+body.blackwhite .dark-square,
+body.blackwhite .checkers-board .cell.dark-square:hover {
+    background: #555555;
+}
+
+body.blackwhite .checkers-board .checker-piece.player-one-piece {
+    background: #000000;
+}
+
+body.blackwhite .checkers-board .checker-piece.player-two-piece {
+    background: #d0d0d0;
+}
+
+
+/* =========================
+   QUARTO ORIGINAL-STYLE HUB VERSION
+========================= */
+
+.quarto-page {
+    background: var(--background);
+    color: var(--text);
+}
+
+.quarto-page h1 {
+    font-size: 48px;
+    margin-bottom: 5px;
+}
+
+.quarto-page #game {
+    display: block;
+}
+
+.quarto-page #previewPiece {
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quarto-page #mainGameArea {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.quarto-page #board {
+    display: grid;
+    grid-template-columns: repeat(4, 90px);
+    gap: 12px;
+    width: fit-content;
+    padding: 20px;
+    margin: 0;
+    background-color: var(--panel-dark);
+    border: 8px solid var(--border);
+    border-radius: 18px;
+}
+
+.quarto-page #historyBox {
+    width: 300px;
+    height: 480px;
+    overflow-y: auto;
+    background-color: var(--panel);
+    border: 6px solid var(--border);
+    border-radius: 18px;
+    padding: 15px;
+    text-align: left;
+}
+
+.quarto-page #historyBox h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.quarto-page #history {
+    font-size: 16px;
+    padding-left: 25px;
+}
+
+.quarto-page .square {
+    width: 90px;
+    height: 90px;
+    background-color: var(--cell);
+    border: 3px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.quarto-page .square::before {
+    content: attr(data-coord);
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--text);
+}
+
+.quarto-page .square:hover {
+    background-color: var(--cell-hover);
+}
+
+.quarto-page .winning-square {
+    background-color: var(--highlight) !important;
+    box-shadow: 0 0 18px var(--highlight);
+}
+
+.quarto-page #pieces {
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.quarto-page .piece {
+    width: 80px;
+    height: 80px;
+    border: 3px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: var(--panel);
+}
+
+.quarto-page .piece:hover {
+    background-color: var(--cell-hover);
+}
+
+.quarto-page .selected {
+    border: 3px solid var(--highlight);
+    background-color: var(--cell-hover);
+}
+
+.quarto-page .inner-piece {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--border);
+    position: relative;
+}
+
+.quarto-page .tall {
+    width: 60px;
+    height: 60px;
+}
+
+.quarto-page .short {
+    width: 42px;
+    height: 42px;
+}
+
+.quarto-page .light {
+    background-color: var(--player-two);
+}
+
+.quarto-page .dark {
+    background-color: var(--player-one);
+}
+
+.quarto-page .round {
+    border-radius: 50%;
+}
+
+.quarto-page .square-shape {
+    border-radius: 0;
+}
+
+.quarto-page .hollow::after {
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    background-color: rgba(0, 0, 0, 0.18);
+    border: 2px solid rgba(0, 0, 0, 0.35);
+}
+
+.quarto-page .hollow.round::after {
+    border-radius: 50%;
+}
+
+.quarto-page footer {
+    margin: 30px;
+    font-size: 16px;
+    color: var(--text);
+}
+
+.quarto-page #reviewControls {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.quarto-page #reviewControls button {
+    padding: 5px 12px;
+    font-size: 18px;
+}
+
+.quarto-page .current-review-move {
+    background-color: var(--highlight);
+    color: #000000;
+    border-radius: 6px;
+    padding: 4px;
+}
+
+.quarto-page .review-square {
+    background-color: var(--highlight) !important;
+    box-shadow: 0 0 18px var(--highlight);
+}
+
+body.blackwhite.quarto-page .light {
+    background-color: #d0d0d0;
+}
+
+body.blackwhite.quarto-page .dark {
+    background-color: #000000;
+}
+
+body.forest.quarto-page .light {
+    background-color: #b7e36f;
+}
+
+body.forest.quarto-page .dark {
+    background-color: #7a4f2a;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+    .game-button {
+        width: 130px;
+        height: 60px;
+        font-size: 15px;
+    }
+
+    .tictactoe-board {
+        grid-template-columns: repeat(3, 80px);
+    }
+
+    .tictactoe-board .cell {
+        width: 80px;
+        height: 80px;
+    }
+
+    .connect4-board {
+        grid-template-columns: repeat(7, 45px);
+    }
+
+    .connect4-board .cell {
+        width: 45px;
+        height: 45px;
+    }
+
+    .checkers-board {
+        grid-template-columns: repeat(8, 38px);
+    }
+
+    .checkers-board .cell {
+        width: 38px;
+        height: 38px;
+    }
+
+    .checker-piece {
+        width: 28px;
+        height: 28px;
+    }
+
+    .quarto-page #board {
+        grid-template-columns: repeat(4, 65px);
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .quarto-page .square {
+        width: 65px;
+        height: 65px;
+    }
+
+    .quarto-page #pieces {
+        grid-template-columns: repeat(4, 65px);
+    }
+
+    .quarto-page .piece {
+        width: 65px;
+        height: 65px;
+    }
+
+    .quarto-page .tall {
+        width: 48px;
+        height: 48px;
+    }
+
+    .quarto-page .short {
+        width: 34px;
+        height: 34px;
+    }
+
+    .quarto-page #historyBox {
+        width: 90%;
+        height: 260px;
+    }
+}

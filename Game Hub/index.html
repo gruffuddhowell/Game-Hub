@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="wooden">
+
+    <div class="page">
+
+        <h1>Game Hub</h1>
+
+        <div class="menu">
+
+            <div class="section">
+                <h2>Choose Theme</h2>
+
+                <button class="selected" onclick="setTheme('wooden', this)">Wooden</button>
+                <button onclick="setTheme('forest', this)">Forest</button>
+                <button onclick="setTheme('blackwhite', this)">Black & White</button>
+            </div>
+
+            <div class="section">
+                <h2>Choose Mode</h2>
+
+                <button class="selected" onclick="setMode('local', this)">Local 2 Player</button>
+                <button onclick="setMode('bot', this)">Play vs Bot</button>
+            </div>
+
+            <div class="section">
+                <h2>Bot Difficulty</h2>
+
+                <button class="selected" onclick="setBotDifficulty('random', this)">Random</button>
+                <button onclick="setBotDifficulty('winning', this)">Winning Move</button>
+                <button onclick="setBotDifficulty('smart', this)">Smart</button>
+                <button onclick="setBotDifficulty('optimal', this)">Optimal</button>
+            </div>
+
+            <div class="section">
+                <h2>Choose Game</h2>
+
+                <div class="game-list">
+                    <button class="game-button" onclick="openGame('tictactoe')">Tic-Tac-Toe</button>
+                    <button class="game-button" onclick="openGame('connect4')">Connect 4</button>
+                    <button class="game-button" onclick="openGame('quarto')">Quarto</button>
+                    <button class="game-button" onclick="openGame('checkers')">Checkers</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+</html>
